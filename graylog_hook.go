@@ -239,6 +239,7 @@ func (hook *GraylogHook) sendEntry(entry graylogEntry) {
 		Full:     string(full),
 		TimeUnix: float64(time.Now().UnixNano()/1000000) / 1000.,
 		Level:    level,
+		Facility: hook.Writer().Facility,
 		File:     entry.file,
 		Line:     entry.line,
 		Extra:    extra,
